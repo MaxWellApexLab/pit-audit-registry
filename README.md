@@ -27,7 +27,7 @@ rebuilt from as-filed SEC EDGAR filings, on **observed** filing dates — and **
 standard fundamental signals are flagged: 28 of 84 signal-cycles**, while `ROA` passes
 cleanly at 0 of 6.
 
-![Per-signal susceptibility on the as-filed SEC EDGAR panel: 7 of 14 signals exceed the 0.10 threshold, led by RnD/assets and OpProfit/assets at 6 of 6 cycles; ROA is clean at 0 of 6](assets/edgar_flags.png)
+![Per-signal susceptibility on the as-filed SEC EDGAR panel: 7 of 14 signals exceed the 0.10 threshold, led by RnD/assets and OpProfit/assets at 6 of 6 cycles; ROA is clean at 0 of 6](https://raw.githubusercontent.com/MaxWellApexLab/pit-audit-registry/main/assets/edgar_flags.png)
 
 → [**SEC EDGAR as-filed US panel — full report, panel and scripts included**](methodology/2026-08_sec-edgar/report.md)
 
