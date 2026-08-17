@@ -8,7 +8,7 @@
 | **Version / vintage** | Panel built from SEC XBRL; 8,657 firm-years / 871 firms on the widest filter, 8,118 firm-years / 856 firms / 62 SIC2 industries on the ROA-complete filter; fiscal years 2009–2026, per-year coverage 2011–2025 |
 | **Screened on** | 2026-08 |
 | **Screened by** | Kuan-Ta Wu, Max Well Apex LLC |
-| **Screen version** | inline implementation (`V2/compute/edgar_*.py`), same estimator as `pit-release-gate` 0.1.1; see §6 |
+| **Screen version** | inline implementation, shipped in this directory (§6); same estimator as `pit-release-gate` 0.1.1 |
 | **Verdict** | **`susceptible (details)`** — 7 of 14 signals flagged in at least one graded cycle; 28 of 84 signal-cycles flagged. `ROA`, the signal behind the published headline, is **benign** at 0/6 |
 
 **Finding.** This is the only entry in the registry screened on **observed** filing timestamps rather
