@@ -270,6 +270,33 @@ jupyter lab osap_predictor_completeness_screen.ipynb   # then: Run All
 - **Artifacts in this directory:** [`osap_predictor_completeness_screen.ipynb`](osap_predictor_completeness_screen.ipynb)
   — the full run, with outputs, that every number above was taken from.
 
+## Badge
+
+This finding has a live endpoint badge. **It is available for the audited project to display; it
+links back to the full audit.** No permission is needed, nothing is expected in return, and it can
+be dropped at any time.
+
+```markdown
+[![PIT audit](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2FMaxWellApexLab%2Fpit-audit-registry%2Fmain%2Fbadge-data%2Fosap.json)](https://github.com/MaxWellApexLab/pit-audit-registry/blob/main/audits/2026-08_osap/report.md)
+```
+
+The badge label reads `PIT audit` and its message is one of the registry's verdict values, with the
+number of predictor-cycles behind it. It states what was measured and nothing more — it is not a
+seal, a grade, or a mark of quality, and this registry issues no such thing.
+
+**Re-screening.** OSAP updates continuously; this entry is a finding about the vintage named in the
+header. Requests to re-screen after a release are welcome, and each re-screen publishes a new dated
+version of this report.
+
 ---
+
+**The rest of this ecosystem**
+
+| | |
+|---|---|
+| Tool | [`pit-release-gate`](https://github.com/MaxWellApexLab/pit-release-gate) — MIT, pip-installable; the reference implementation of the screen and the graded gate |
+| Registry | [`pit-audit-registry`](https://github.com/MaxWellApexLab/pit-audit-registry) — this registry; every entry is a measurement with a command attached |
+| Pledge | [`pit-hygiene`](https://github.com/MaxWellApexLab/pit-hygiene) — five self-declared commitments for your own pipeline; no outside body involved |
+| Papers | [doi:10.6084/m9.figshare.32952482](https://doi.org/10.6084/m9.figshare.32952482) (engine) · [doi:10.6084/m9.figshare.33061955](https://doi.org/10.6084/m9.figshare.33061955) (screen) · [doi:10.6084/m9.figshare.33158615](https://doi.org/10.6084/m9.figshare.33158615) (release control) — all preprints |
 
 *Report: CC BY 4.0. Screening code: MIT.*

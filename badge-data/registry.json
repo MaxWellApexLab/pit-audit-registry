@@ -1,0 +1,43 @@
+{
+  "_comment": "Single source of truth for every generated badge in this directory. NOT a shields endpoint. Add an entry here only when its report is actually live in the registry; tools/update_badges.py regenerates audits.json, screened.json and the per-entry badges from this file, so the published counts cannot run ahead of the published reports. Methodology pages are listed separately and deliberately carry no badge.",
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "slug": "osap",
+      "target": "Open Source Asset Pricing (OSAP)",
+      "report": "audits/2026-08_osap/report.md",
+      "date": "2026-08",
+      "verdict": "benign (by construction)",
+      "signalCycles": 18,
+      "signalCyclesFlagged": 0,
+      "badgeMessage": "benign · 18/18 signal-cycles"
+    },
+    {
+      "slug": "jkp-gfd",
+      "target": "JKP Global Factor Data",
+      "report": "audits/2026-08_jkp-gfd/report.md",
+      "date": "2026-08",
+      "verdict": "benign (by construction)",
+      "signalCycles": 0,
+      "signalCyclesFlagged": 0,
+      "badgeMessage": "benign (by construction)",
+      "note": "By-construction verdict with no arrival column in the delivered data, so there are no measured signal-cycles to count. The badge deliberately carries no number rather than borrowing one from the positive control or from the characteristic count."
+    }
+  ],
+  "methodologyPages": [
+    {
+      "slug": "sec-edgar",
+      "title": "SEC EDGAR as-filed US panel",
+      "page": "methodology/2026-08_sec-edgar/report.md",
+      "badge": false,
+      "note": "Screened 84 signal-cycles across 14 signals; 28 flagged, 7 of 14 signals clean. Not a registry entry, so its cycles do not enter screened.json."
+    },
+    {
+      "slug": "feast-pit-join",
+      "title": "As-of join semantics in feature stores",
+      "page": "methodology/2026-08_feast-pit-join/report.md",
+      "badge": false,
+      "note": "Mechanism demonstration on synthetic planted truth. No project under test, so no badge and no row."
+    }
+  ]
+}
