@@ -13,43 +13,118 @@ related to the quantity being measured.
 Every entry here is a **measurement with a command attached**. Each report states what was
 screened, at what version, with what result, and how to reproduce the number yourself.
 
+**[Tool](https://github.com/MaxWellApexLab/pit-release-gate) ·
+[Pledge](https://github.com/MaxWellApexLab/pit-hygiene) ·
+[Methodology](#methodology) ·
+[Request a screen](#requesting-or-contributing-a-screen)**
+
 ---
+
+## The wild flags
+
+Run the screen on data that has **no** publication calendar protecting it — a US panel
+rebuilt from as-filed SEC EDGAR filings, on **observed** filing dates — and **7 of 14
+standard fundamental signals are flagged: 28 of 84 signal-cycles**, while `ROA` passes
+cleanly at 0 of 6.
+
+![Per-signal susceptibility on the as-filed SEC EDGAR panel: 7 of 14 signals exceed the 0.10 threshold, led by RnD/assets and OpProfit/assets at 6 of 6 cycles; ROA is clean at 0 of 6](assets/edgar_flags.png)
+
+→ [**SEC EDGAR as-filed US panel — full report, panel and scripts included**](methodology/2026-08_sec-edgar/report.md)
+
+That is the baseline the curated datasets below are measured against. Their green
+entries are not "nothing to see here" — they are evidence that **a publication calendar
+is doing real protective work**, and that the protection **does not travel** when a user
+rebuilds the same signals from as-filed sources.
+
+Reproduce the first registry entry end-to-end — free public data, no account, ~2 minutes:
+
+```bash
+pip install openassetpricing pit-release-gate numpy pandas scipy matplotlib jupyter
+git clone https://github.com/MaxWellApexLab/pit-audit-registry
+jupyter lab pit-audit-registry/audits/2026-08_osap/osap_predictor_completeness_screen.ipynb  # Run All
+# expected: |rho_hat| <= 0.036 across all 18 predictor-cycles (threshold 0.10)
+```
 
 ## The registry
 
-| target | version / vintage | date | finding | verdict | full report |
-|---|---|---|---|---|---|
-| [Open Source Asset Pricing (OSAP)](https://github.com/OpenSourceAP/CrossSection) — `Accruals`, `AssetGrowth`, `BM` | panel retrieved via `openassetpricing`, stamps `200401`–`202610` | 2026-08 | Uniform annual update calendar closes the arrival-selection channel; completeness steps ~7% → ~88% in June. Measured \|ρ̂\| ≤ 0.036 across 18 predictor-cycles, an order of magnitude under the 0.10 threshold. | [![PIT audit](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2FMaxWellApexLab%2Fpit-audit-registry%2Fmain%2Fbadge-data%2Fosap.json)](audits/2026-08_osap/report.md) | [audits/2026-08_osap/](audits/2026-08_osap/report.md) |
-| [JKP Global Factor Data](https://jkpfactors.com/) — the documented accounting-availability convention | `Documentation.pdf` (55 pp.), retrieved 2026-08 | 2026-08 | A uniform four-month availability assumption applied to every accounting variable removes filing speed from arrival ordering, closing the channel structurally. Demonstrated on planted truth: the same leakage read −0.324 under as-filed release and +0.017 under uniform release. Cost: a blanket timeliness tax on all 406 characteristics. Not externally verifiable — no arrival field is documented. | [![PIT audit](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2FMaxWellApexLab%2Fpit-audit-registry%2Fmain%2Fbadge-data%2Fjkp-gfd.json)](audits/2026-08_jkp-gfd/report.md) | [audits/2026-08_jkp-gfd/](audits/2026-08_jkp-gfd/report.md) |
+### Open Source Asset Pricing (OSAP) — Chen & Zimmermann
 
-Each badge above is a live endpoint served from this repository, and **the audited project is
-welcome to display it** — see the snippet at the foot of each report.
+[![PIT audit](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2FMaxWellApexLab%2Fpit-audit-registry%2Fmain%2Fbadge-data%2Fosap.json)](audits/2026-08_osap/report.md)
 
-## Why screen? The wild flags.
+`Accruals`, `AssetGrowth`, `BM` · panel via `openassetpricing`, stamps `200401`–`202610` · screened 2026-08
 
-Both entries above came out benign, and a reasonable reader should ask whether this screen is
-capable of saying anything else. It is. Run it on data that has **no** publication calendar
-protecting it — a panel rebuilt from as-filed SEC EDGAR filings, on observed filing dates — and
-**7 of 14 signals are flagged, 28 of 84 signal-cycles**, while `ROA` passes cleanly at **0 of 6**.
+The uniform annual update calendar closes the arrival-selection channel;
+measured \|ρ̂\| ≤ 0.036 across 18 predictor-cycles, an order of magnitude under
+the 0.10 threshold.
 
-→ [**SEC EDGAR as-filed US panel**](methodology/2026-08_sec-edgar/report.md) — the measured version
-of the caution the OSAP entry closes on: a dataset's protection belongs to its publication
-calendar, and **it does not travel** to a rebuild from as-filed sources.
+**[Report](audits/2026-08_osap/report.md) ·
+[Notebook](audits/2026-08_osap/osap_predictor_completeness_screen.ipynb) ·
+[Badge snippet](audits/2026-08_osap/report.md#badge)**
+
+### JKP Global Factor Data — Jensen, Kelly & Pedersen
+
+[![PIT audit](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2FMaxWellApexLab%2Fpit-audit-registry%2Fmain%2Fbadge-data%2Fjkp-gfd.json)](audits/2026-08_jkp-gfd/report.md)
+
+Documented accounting-availability convention · `Documentation.pdf` (55 pp.), retrieved 2026-08
+
+A uniform four-month availability assumption removes filing speed from arrival
+ordering — structurally immune. Verified on planted truth: the same leakage read
+−0.324 under as-filed release, +0.017 under uniform release. Cost: a blanket
+timeliness tax on all 406 characteristics; not externally verifiable, as no
+arrival field is documented.
+
+**[Report](audits/2026-08_jkp-gfd/report.md) ·
+[Control script](audits/2026-08_jkp-gfd/jkp_construction_control.py) ·
+[Badge snippet](audits/2026-08_jkp-gfd/report.md#badge)**
+
+## Reading a verdict
+
+The verdict on a report takes exactly three values:
+
+| verdict | meaning |
+|---|---|
+| `benign (by construction)` | The target's own design closes the arrival-selection channel — e.g. a uniform reporting lag applied before publication. Measurement confirms it, but the *reason* is structural, and it stops holding the moment a user rebuilds the data from as-filed sources. |
+| `benign (measured)` | No structural reason to expect immunity, and ρ̂ came out under threshold anyway across the screened periods. |
+| `susceptible (details)` | ρ̂ exceeded the threshold in one or more periods. The report says which, how large, and what required completeness the graded gate assigns. |
+
+A verdict is a **finding about a specific version on a specific date**, not a property of the
+project. Data conventions change; re-screening after a major release is the reader's job, and
+the reproduction command in each report is there to make that cheap.
+
+These are audit reports. Nothing here is an award, a ranking, or a grade of overall quality —
+a `susceptible` finding on a well-built dataset is a normal and expected result, and usually
+says more about the reporting calendar of the underlying filings than about the project.
+
+## If you maintain a project listed here
+
+The badge next to your entry is a **live endpoint served from this repository**, and you
+are welcome to display it:
+
+```markdown
+[![PIT audit](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2FMaxWellApexLab%2Fpit-audit-registry%2Fmain%2Fbadge-data%2F<target>.json)](link-to-your-report)
+```
+
+Displaying it claims exactly one thing: that this screen was run on the stated version
+with the stated result. It is not a certification, an award, or an endorsement — the
+[report](#the-registry) behind it is the claim. The exact snippet for your project is at
+the foot of your report.
+
+If you believe a finding is wrong, open an issue with the reproduction that shows it.
+Findings are corrected in place with a dated note explaining what changed, and the
+correction stays visible in the report; nothing is silently edited.
 
 ---
 
 ## Methodology
 
 Not every screen grades a project. These pages demonstrate the mechanism the registry exists to
-measure. They carry **no badge, no verdict on anyone, and no row in the table above** — there is no
+measure. They carry **no badge, no verdict on anyone, and no entry above** — there is no
 project under test.
 
 | page | what it demonstrates |
 |---|---|
 | [SEC EDGAR as-filed US panel](methodology/2026-08_sec-edgar/report.md) | What an as-filed rebuild costs. On **observed** SEC filing dates, the raw latency–signal correlation for industry-adjusted ROA is −0.296 and conditions down to +0.097; across 14 signals, 28 of 84 signal-cycles are flagged and 7 of 14 signals are clean. |
 | [As-of join semantics in feature stores](methodology/2026-08_feast-pit-join/report.md) | Why a point-in-time-correct join is not enough. On synthetic planted truth, a correct as-of join still yields an offline rank IC inflated by +0.0390 (+10.7%) once the evaluation sample is held fixed. A property of the mechanism, not a defect in any one implementation. |
-
----
 
 ## What gets screened
 
@@ -87,24 +162,6 @@ Method references: the screen and the release controller are defined in
 reference implementation is the MIT-licensed
 [`pit-release-gate`](https://github.com/MaxWellApexLab/pit-release-gate).
 
-## Reading a verdict
-
-The `verdict` column takes exactly three values:
-
-| verdict | meaning |
-|---|---|
-| `benign (by construction)` | The target's own design closes the arrival-selection channel — e.g. a uniform reporting lag applied before publication. Measurement confirms it, but the *reason* is structural, and it stops holding the moment a user rebuilds the data from as-filed sources. |
-| `benign (measured)` | No structural reason to expect immunity, and ρ̂ came out under threshold anyway across the screened periods. |
-| `susceptible (details)` | ρ̂ exceeded the threshold in one or more periods. The report says which, how large, and what required completeness the graded gate assigns. |
-
-A verdict is a **finding about a specific version on a specific date**, not a property of the
-project. Data conventions change; re-screening after a major release is the reader's job, and
-the reproduction command in each report is there to make that cheap.
-
-These are audit reports. Nothing here is an award, a ranking, or a grade of overall quality —
-a `susceptible` finding on a well-built dataset is a normal and expected result, and usually
-says more about the reporting calendar of the underlying filings than about the project.
-
 ## Requesting or contributing a screen
 
 Open an issue. Include a link to the public data or pipeline, and how a reader would obtain
@@ -112,15 +169,9 @@ it without a licence. If you have run a screen yourself and want it listed, open
 request with a report following [AUDIT_TEMPLATE.md](AUDIT_TEMPLATE.md) — including the
 positive control.
 
-## Corrections
-
-If you maintain a target listed here and believe a finding is wrong, open an issue with the
-reproduction that shows it. Findings are corrected in place with a dated note explaining what
-changed, and the correction stays visible in the report; nothing is silently edited.
-
 ---
 
-Maintained by Max Well Apex LLC. Reports are CC BY 4.0; screening code is MIT.
+Maintained by Max Well Apex LLC.
 
 ## Licensing
 
