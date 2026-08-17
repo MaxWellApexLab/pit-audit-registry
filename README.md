@@ -121,3 +121,13 @@ changed, and the correction stays visible in the report; nothing is silently edi
 ---
 
 Maintained by Max Well Apex LLC. Reports are CC BY 4.0; screening code is MIT.
+
+## Licensing
+
+Copyright (c) 2026 Max Well Apex LLC.
+
+- **Audit reports, methodology pages, and prose** (`audits/`, `methodology/`,
+  `README.md`, `AUDIT_TEMPLATE.md`) — [CC BY 4.0](LICENSE): share and adapt
+  freely, with attribution to this registry.
+- **Code** (`tools/`, and any scripts inside report folders) —
+  [MIT](LICENSE-CODE).

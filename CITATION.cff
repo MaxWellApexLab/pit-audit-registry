@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you cite a verdict from this registry, please cite it as below."
+title: "PIT Audit Registry: reproducible screens for incomplete-cross-section leakage"
+type: dataset
+authors:
+  - name: "Max Well Apex LLC"
+    city: "Buffalo"
+    country: "US"
+repository-code: "https://github.com/MaxWellApexLab/pit-audit-registry"
+license: CC-BY-4.0
