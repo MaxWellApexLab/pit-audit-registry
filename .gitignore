@@ -1,2 +1,2 @@
-staging_13f/panel_13f.parquet
-staging_13f/screen_13f_results.json
+staging_13f/
+**/__pycache__/

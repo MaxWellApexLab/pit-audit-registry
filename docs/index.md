@@ -24,12 +24,16 @@ Every entry is a measurement with a command attached.
   the channel structurally.
 - **[Is as-filed SEC EDGAR data safe for cross-sectional signals?](edgar)**
   — **7 of 14 standard signals flagged** (28/84 signal-cycles). ROA is clean at 0/6.
+- **[Do staggered SEC Form 13F filings bias cross-manager statistics?](13f)**
+  — **flagged in 11 of 11 quarters**, at ten times this panel's measured noise floor,
+  on filing dates that are observed rather than reconstructed.
 
 ![Per-signal susceptibility on the as-filed SEC EDGAR panel](https://raw.githubusercontent.com/MaxWellApexLab/pit-audit-registry/main/assets/edgar_flags.png)
 
-The pattern across the three: **a publication calendar is doing real protective
-work, and the protection does not travel** when a user rebuilds the same
-signals from as-filed sources.
+The pattern across the four: **a publication calendar is doing real protective
+work, and the protection does not travel.** Curated releases with a uniform
+update calendar come out clean; data taken at the dates it actually arrived —
+as-filed EDGAR filings, or 13F filings inside their 45-day window — does not.
 
 ## Method, in one paragraph
 

@@ -124,6 +124,7 @@ project under test.
 | page | what it demonstrates |
 |---|---|
 | [SEC EDGAR as-filed US panel](methodology/2026-08_sec-edgar/report.md) | What an as-filed rebuild costs. On **observed** SEC filing dates, the raw latency–signal correlation for industry-adjusted ROA is −0.296 and conditions down to +0.097; across 14 signals, 28 of 84 signal-cycles are flagged and 7 of 14 signals are clean. |
+| [SEC Form 13F institutional manager panel](methodology/2026-08_sec-13f/report.md) | What **observed** filing dates cost when the arrival window is 45 days wide. Across 16 quarters and 85,036 manager-quarters, three standard cross-manager characteristics each read \|ρ̂\| ≈ 0.13–0.18 against a noise floor of 0.015 measured on the same panel, flagged in 11 of 11 screened quarters. Permuting arrival order within quarters collapses the reading to ~0.00. The delay pattern itself is documented in the literature; what is measured here is its consequence for a cross-sectional feature. |
 | [As-of join semantics in feature stores](methodology/2026-08_feast-pit-join/report.md) | Why a point-in-time-correct join is not enough. On synthetic planted truth, a correct as-of join still yields an offline rank IC inflated by +0.0390 (+10.7%) once the evaluation sample is held fixed. A property of the mechanism, not a defect in any one implementation. |
 
 ## What gets screened
