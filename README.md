@@ -1,5 +1,7 @@
 # PIT Audit Registry
 
+[![screened with pit-release-gate](https://img.shields.io/badge/screened%20with-pit--release--gate-blue)](https://github.com/MaxWellApexLab/pit-release-gate)
+
 Reproducible findings on whether public datasets and pipelines are exposed to
 **incomplete-cross-section leakage** — the bias that arises when a cross-sectional
 quantity is computed before the group finished reporting, and reporting timing is
