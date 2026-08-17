@@ -30,7 +30,7 @@ Every entry is a measurement with a command attached.
 
 ![Per-signal susceptibility on the as-filed SEC EDGAR panel](https://raw.githubusercontent.com/MaxWellApexLab/pit-audit-registry/main/assets/edgar_flags.png)
 
-The pattern across the four: **a publication calendar is doing real protective
+The pattern across every entry so far: **a publication calendar is doing real protective
 work, and the protection does not travel.** Curated releases with a uniform
 update calendar come out clean; data taken at the dates it actually arrived —
 as-filed EDGAR filings, or 13F filings inside their 45-day window — does not.
