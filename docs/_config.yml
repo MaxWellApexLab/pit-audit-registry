@@ -1,0 +1,5 @@
+theme: jekyll-theme-primer
+title: PIT Audit Registry
+description: >-
+  Reproducible screens for incomplete-cross-section leakage in public datasets
+  and pipelines. Every entry is a measurement with a command attached.
