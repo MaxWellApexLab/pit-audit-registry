@@ -1,6 +1,7 @@
 # PIT Audit Registry
 
 [![PIT Hygiene](https://img.shields.io/badge/PIT%20Hygiene-pledged-2ea44f)](https://github.com/MaxWellApexLab/pit-hygiene)
+[![audits](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2FMaxWellApexLab%2Fpit-audit-registry%2Fmain%2Fbadge-data%2Faudits.json)](https://github.com/MaxWellApexLab/pit-audit-registry)
 [![screened with pit-release-gate](https://img.shields.io/badge/screened%20with-pit--release--gate-blue)](https://github.com/MaxWellApexLab/pit-release-gate)
 
 [![screened with pit-release-gate](https://img.shields.io/badge/screened%20with-pit--release--gate-blue)](https://github.com/MaxWellApexLab/pit-release-gate)
